@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, init ial-scale=1.0">   
+    <link rel="stylesheet" href="/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+      <header class="medical-header">
+        <div class="medical-header-container">
+            <!-- Logo -->
+            <div class="medical-logo-wrapper">
+                <img src="/powerbone-logo-dentalimplant-1536x333.png" alt="Logo">
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="medical-main-nav">
+                <ul class="medical-nav-links">
+                    <li><a href="/html.html">Who We Are</a></li>
+                    <li><a href="#our-services">Our Services</a></li>
+                    <li><a href="#fair-events">Fair Events</a></li>
+                    <li class="medical-dropdown">
+                        <a href="/product.html">Products</a>
+                        <div class="medical-dropdown-menu">
+                            <a href="#dental">DENTAL</a>
+                            <a href="#orthopedic">ORTHOPEDIC</a>
+                            <a href="#spinal">SPINAL</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Section -->
+            <div class="medical-right-section">
+                <a href="#catalogue" class="medical-catalogue-btn">Digital Catalogue</a>
+                
+                <div class="medical-language-selector">
+                    <button class="medical-language-btn" onclick="toggleMedicalLanguage()">EN</button>
+                    <div class="medical-language-dropdown">
+                        <div class="medical-language-option active" onclick="selectMedicalLanguage('EN')">English</div>
+                        <div class="medical-language-option" onclick="selectMedicalLanguage('TR')">Türkçe</div>
+                        <div class="medical-language-option" onclick="selectMedicalLanguage('DE')">Deutsch</div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="medical-hamburger" onclick="toggleMedicalMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+ <section class="hero" id="home">
+        <div class="container2">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p style="color: #078147; font-weight: 600; margin-bottom: 10px;">ONLINE SOLUTION</p>
+                    <h1>Take the <span class="highlight">world's</span> best<br>Quality Treatment.</h1>
+                    <p>Get the best dental care with our world-class treatments and experienced professionals.</p>
+                    
+                    <div class="cta-buttons">
+
+                        <a href="#services" class="btn btn-secondary">📋 GET FREE CHECKUP</a>
+                    </div>
+                </div>
+                
+                <!-- Sağ tarafa resim ve çizgiler -->
+                <div class="hero-image">
+                    <!-- Çizgiler -->
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <!-- Resim -->
+                    <img src="/disprotezi.png" alt="Dental Treatment" class="hero-img">
+                </div>
+            </div>
+        </div>
+
+             <!-- Model 1 -->
+                <model-viewer 
+    id="model1"
+    src="/son_son_hali.glb"
+    alt="Dental Model 1"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral"
+    auto-rotate
+    auto-rotate-delay="0"
+    rotation-per-second="90deg"
+    camera-controls
+    disable-zoom
+    disable-pan
+    style="width: 150px; height: 150px; position: absolute; z-index: 1000; top: 65%; left: 59%;"
+></model-viewer>
+
+<!-- Model 2 -->
+<model-viewer 
+    id="model2"
+    src="/son_son_hali.glb" 
+    alt="Dental Model 2"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral"
+    auto-rotate
+    auto-rotate-delay="0"
+    rotation-per-second="90deg"
+    camera-controls
+    disable-zoom
+    disable-pan
+    style="width: 150px; height: 150px; position: absolute; z-index: 1000; top: 28%; right:8%;"
+></model-viewer>
+
+    </section>
+
+
+
+        
+    
+   <section class="reklam_kismi">
+        <!-- Call Card -->
+         <div class="call-card-container">
+        <div class="call-card">
+            <div class="header-section">
+                <div class="kulaklik">
+                    <img src="/kulaklik son.png" alt="Headphone Icon">
+                </div>
+                <div class="header-text">
+                    <h3>Give Us a Call</h3>
+                    <div class="phone">+1 800 567-8990</div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <p>Get The Quality Care That You Deserve Immediately</p>
+                <a href="tel:+18005678990" class="btn">CONTACT US</a>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Hospital Info Widget -->
+        <div class="hospital-info-widget">
+            <div class="left-section">
+                <div>
+                    <h3 class="medical-facility-heading">We are Certified Award Winning Hospital in USA.</h3>
+                    
+                </div>
+                
+     <div class="medical-video-wrapper">
+        <div class="clinic-video-preview">
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+            <source src="/dental-1.mp4" type="video/mp4">
+            Tarayıcınız video öğesini desteklemiyor.
+        </video>
+    </div>
+</div>     
+
+            </div>
+
+            <div class="right-section2">
+                
+<div class="hours-section-heading">
+    <i class="fas fa-calendar-alt schedule-display-icon"></i>
+    <h4 class="opening-times-label">Opening Hours</h4>
+</div>
+
+                <div class="weekly-schedule-list">
+                    <div class="daily-hours-entry">
+                        <span class="weekday-label">Monday - Friday</span>
+                        <span class="operation-timeframe">8:00am - 7:00pm</span>
+                    </div>
+                    <div class="daily-hours-entry">
+                        <span class="weekday-label">Saturday</span>
+                        <span class="operation-timeframe">7:30am - 4:00pm</span>
+                    </div>
+                    <div class="daily-hours-entry">
+                        <span class="weekday-label">Sunday</span>
+                        <span class="operation-timeframe facility-closed-status">Closed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+
+
+
+
+       
+
+
+
+
+     <section class="healthcare-section" id="healthcare-section">
+        <div class="container">
+            <div class="text-content">
+                <div class="text-area">
+                    <h4 class="section-title">WHO WE ARE</h4>
+                    <h2 class="main-title">The Dental Center National Hospital</h2>
+                    <p class="section-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+                    </p>
+                    
+                    <div class="service-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Routine and medical care</h3>
+                                <p>Excellence in Healthcare every</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Routine and medical care</h3>
+                                <p>Excellence in Healthcare every</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Building a healthy environment</h3>
+                                <p>Building a healthy environment</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-box">
+                        <div class="experience-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="experience-text">
+                            <div class="years">25 Years</div>
+                            <div class="description">of Dentist Experience</div>
+                        </div>
+                        <div class="doctor-info">
+                            <div class="doctor-name">Michael Phillips,</div>
+                            <div class="doctor-title">Vivamus diam neque</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="extra-area">
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section class="services-section">
+        <div class="section-tag">OUR SERVICES</div>
+        <h2 class="main-title">What We Offer for You</h2>
+        <p class="main-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d=""/>
+                    </svg>
+                </div>
+                <h3 class="service-title">General Dentistry</h3>
+                <p class="service-description">
+                    Patient can get general treatments with single setting.
+                </p>
+                <a href="#" class="read-more-btn">
+                    READ MORE
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Cosmetic Dentistry</h3>
+                <p class="service-description">
+                    Cosmetic dentistry is make your teeth and smile beautiful.
+                </p>
+                <a href="#" class="read-more-btn">
+                    READ MORE
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 11H7v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v6zm3-6h2v2h-2V5z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Dental Implants</h3>
+                <p class="service-description">
+                    Dental implants is a procedure of replacing missing teeth.
+                </p>
+                <a href="#" class="read-more-btn">
+                    READ MORE
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="dots-indicator">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+           <div class="section-tag2">Fairs & Events</div>
+    </section>
+
+
+    <section class="showcase-section">
+     
+         <div class="showcase-container">
+        <div class="showcase-track">
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Modern Ofis Tasarımı</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">15-30 Ocak 2025</div>
+                        <div class="hover-description">Modern ofis tasarımları ve çalışma alanları için profesyonel çözümler</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Konferans Salonu</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">1-15 Şubat 2025</div>
+                        <div class="hover-description">Teknoloji entegrasyonu ile gelişmiş konferans salonu çözümleri</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Ortak Çalışma Alanı</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">16-28 Şubat 2025</div>
+                        <div class="hover-description">İş birliği ve yaratıcılığı destekleyen esnek çalışma alanları</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Yönetici Ofisi</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">1-15 Mart 2025</div>
+                        <div class="hover-description">Prestijli kurumsal kimlik yansıtan üst düzey yönetim ofisleri</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Personel Dinlenme</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">16-31 Mart 2025</div>
+                        <div class="hover-description">Konfor ve motivasyonu artıran çalışan odaklı dinlenme alanları</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Akıllı Ofis Sistemi</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">1-20 Nisan 2025</div>
+                        <div class="hover-description">İnovatif teknoloji altyapısı ile desteklenen akıllı ofis sistemleri</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seamless loop items (duplicates) -->
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Modern Ofis Tasarımı</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">15-30 Ocak 2025</div>
+                        <div class="hover-description">Modern ofis tasarımları ve çalışma alanları için profesyonel çözümler</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Konferans Salonu</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">1-15 Şubat 2025</div>
+                        <div class="hover-description">Teknoloji entegrasyonu ile gelişmiş konferans salonu çözümleri</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop');">
+                    <h3 class="item-title">Ortak Çalışma Alanı</h3>
+                    <div class="hover-overlay">
+                        <div class="date-range">16-28 Şubat 2025</div>
+                        <div class="hover-description">İş birliği ve yaratıcılığı destekleyen esnek çalışma alanları</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+
+
+
+
+    
+
+
+
+            <section>
+        <div class="section-tag3">PRODUCTS</div>
+        
+        <div class="container5">
+            <!-- Sol Filtre Paneli -->
+            <div class="filter-panel">
+                <div class="filter-title">Filtreler</div>
+                
+                <input type="text" class="search-box" id="searchInput" placeholder="Ürün ara...">
+                
+                <div class="filter-group">
+                    <div class="filter-group-title">Kategori</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat1" value="elektronik">
+                        <label for="cat1">Elektronik</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat2" value="giyim">
+                        <label for="cat2">Giyim</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat3" value="ev">
+                        <label for="cat3">Ev & Yaşam</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat4" value="spor">
+                        <label for="cat4">Spor</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group-title">Marka</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand1" value="apple">
+                        <label for="brand1">Apple</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand2" value="samsung">
+                        <label for="brand2">Samsung</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand3" value="nike">
+                        <label for="brand3">Nike</label>
+                    </div>
+                </div>
+
+                <button class="clear-filters" onclick="resetFilters()">Filtreleri Temizle</button>
+            </div>
+
+            <!-- Sağ Ürün Paneli -->
+            <div class="catalog-panel">
+                <!-- Ürün Listesi -->
+                <div class="catalog-grid" id="catalogGrid">
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 1</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 2</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 3</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 4</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 5</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 6</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 7</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 8</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 9</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 10</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 11</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 12</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 13</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 14</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Ürün 15</div>
+                    </div>
+                </div>
+                
+                <!-- Sayfalama -->
+                <div class="pagination-wrapper" id="paginationContainer">
+                    <button class="pagination-btn">«</button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">»</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+          <section class="contact-section">
+        <div class="buyuk_kutu">
+            <div class="section-tag4">CONTACT US</div>
+            <div class="contact-container">
+                <!-- Map Container -->
+                <div class="map-container">
+                    <div class="map-wrapper">
+                        <div id="interactiveMap" class="interactive-map">
+                            <iframe 
+                                id="map"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d99978.4922650673!2d27.231587!3d38.456991!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b97cdab848336b%3A0xb5fc14c5b1c05a7c!2sideEge%20Teknoloji%20Geli%C5%9Ftirme%20B%C3%B6lgesi!5e0!3m2!1str!2str!4v1754903503711!5m2!1str!2str"
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="map-overlay" id="mapOverlay">
+                                <div class="map-click-info">
+                                    <div class="location-icon">📍</div>
+                                    <h3>Konumumuzu Google Maps'te Gör</h3>
+                                    <p>Haritaya tıklayın ve kolay yol tarifi alın</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Container -->
+                <div class="contact-form-container">
+                    <div class="contact-header">
+                        <h2 class="contact-title">İletişime Geçin</h2>
+                        <p class="contact-subtitle">
+                            Projeleriniz hakkında konuşmak için bizimle iletişime geçin.
+                        </p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-inputs">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" id="name" class="form-input" placeholder="Your name" required>
+                                    <div class="input-line"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="surname" class="form-label">Surname</label>
+                                    <input type="text" id="surname" class="form-input" placeholder="Your surname" required>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" id="email" class="form-input" placeholder="Your email address" required>
+                                    <div class="input-line"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-input" placeholder="Your phone number" required>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message (Optional)</label>
+                                <textarea id="message" class="form-textarea" placeholder="Your message..."></textarea>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+     <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Hakkımızda</h3>
+                <p>25 yılı aşkın tecrübemizle medikal sektöründe öncü firmalardan biriyiz. Kalite ve müşteri memnuniyeti her zaman önceliğimizdir.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Hızlı Linkler</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünlerimiz</a></li>
+                    <li><a href="#">Sunumlar</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ürünler</h3>
+                <ul class="footer-links">
+                    <li><a href="#">İmplantlar</a></li>
+                    <li><a href="#">Konteynır Sistemleri</a></li>
+                    <li><a href="#">Cerrahi Aletler</a></li>
+                    <li><a href="#">Stabilizasyon Sistemleri</a></li>
+                    <li><a href="#">Minimal İnvazive Sistemler</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>İletişim</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Organize Sanayi Bölgesi, İstanbul</li>
+                    <li><i class="fas fa-phone"></i> +90 212 555 55 55</li>
+                    <li><i class="fas fa-envelope"></i> info@metrosan.com.tr</li>
+                    <li><i class="fas fa-clock"></i> Pzt-Cmt: 08:00 - 18:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 POWERBONE. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Önce kütüphaneleri yükle -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<!-- Sonra kendi JS dosyanız -->
+<script src="/js2.js" ></script>
+
+</body>
+</html>

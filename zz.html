@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Kataloğu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+        }
+
+        /* URUN SEPETI KISMIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII*/
+        .section-tag3 {
+            display: inline-block;
+            background: rgba(99, 146, 255, 0.1);
+            color: #6392ff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 40px;
+            border-radius: 20px;
+            margin: 0 auto 24px auto;
+            border: 1px solid rgba(99, 146, 255, 0.2);
+            position: relative;
+            bottom: 400px;
+            left: 45%;
+        }
+
+        .container5 {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+            min-height: 100vh;
+            margin-top: -300px;
+        }
+
+        /* Sol Filtre Paneli */
+        .filter-panel {
+            width: 25%;
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            height: fit-content;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+        }
+
+        .filter-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e8ecf0;
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 30px;
+            transition: border-color 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #00000084;
+            background: white;
+        }
+
+        .filter-group {
+            margin-bottom: 30px;
+        }
+
+        .filter-group-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #34495e;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin-right: 14px;
+            transform: scale(1.3);
+            accent-color: #078147;
+        }
+
+        .filter-option label {
+            font-size: 16px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .clear-filters {
+            background: #ecf0f1;
+            color: #7f8c8d;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .clear-filters:hover {
+            background: #d5dbdb;
+        }
+
+        /* Sağ Ürün Paneli */
+        .catalog-panel {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+            flex: 1;
+        }
+
+        .catalog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .catalog-image {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #bdc3c7;
+        }
+
+        /* Her kart için farklı resimler */
+        .catalog-card:nth-child(1) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=220&fit=crop');
+        }
+
+        .catalog-card:nth-child(2) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=220&fit=crop');
+        }
+
+        .catalog-card:nth-child(3) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=220&fit=crop');
+        }
+
+        .catalog-card:nth-child(4) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=220&fit=crop');
+        }
+
+        .catalog-card:nth-child(5) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1560472355-536de3962603?w=300&h=220&fit=crop');
+        }
+
+        .catalog-card:nth-child(6) .catalog-image {
+            background-image: url('https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=220&fit=crop');
+        }
+
+        .catalog-title {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c3e50;
+            text-align: center;
+            border-top: 1px solid #f1f2f6;
+        }
+
+        /* Sayfalama */
+        .pagination-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .pagination-btn {
+            padding: 14px 20px;
+            border: 2px solid #e8ecf0;
+            background: white;
+            color: #555;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 52px;
+            text-align: center;
+        }
+
+        .pagination-btn:hover {
+            border-color: #078147;
+            color: #078147;
+            transform: translateY(-1px);
+        }
+
+        .pagination-btn.active {
+            background: linear-gradient(135deg, #078147, #044a28);
+            color: white;
+            border-color: #078147;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .pagination-btn.active:hover {
+            background: linear-gradient(135deg, #078147, #044325);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container5 {
+                flex-direction: column;
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .filter-panel,
+            .catalog-panel {
+                width: 100%;
+            }
+
+            .catalog-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .catalog-image {
+                height: 160px;
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pagination-wrapper {
+                gap: 6px;
+            }
+            
+            .pagination-btn {
+                padding: 10px 14px;
+                font-size: 14px;
+                min-width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="section-tag3">PRODUCTS</div>
+        
+        <div class="container5">
+            <!-- Sol Filtre Paneli -->
+            <div class="filter-panel">
+                <div class="filter-title">Filtreler</div>
+                
+                <input type="text" class="search-box" id="searchInput" placeholder="Ürün ara...">
+                
+                <div class="filter-group">
+                    <div class="filter-group-title">Kategori</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat1" value="elektronik">
+                        <label for="cat1">Elektronik</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat2" value="giyim">
+                        <label for="cat2">Giyim</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat3" value="ev">
+                        <label for="cat3">Ev & Yaşam</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat4" value="spor">
+                        <label for="cat4">Spor</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group-title">Marka</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand1" value="apple">
+                        <label for="brand1">Apple</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand2" value="samsung">
+                        <label for="brand2">Samsung</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand3" value="nike">
+                        <label for="brand3">Nike</label>
+                    </div>
+                </div>
+
+                <button class="clear-filters" onclick="resetFilters()">Filtreleri Temizle</button>
+            </div>
+
+            <!-- Sağ Ürün Paneli -->
+            <div class="catalog-panel">
+                <!-- Ürün Listesi -->
+                <div class="catalog-grid" id="catalogGrid">
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">iPhone 14 Pro</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Nike Air Max</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Kulaklık</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Saat</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Laptop</div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="catalog-image"></div>
+                        <div class="catalog-title">Gömlek</div>
+                    </div>
+                </div>
+                
+                <!-- Sayfalama -->
+                <div class="pagination-wrapper" id="paginationContainer">
+                    <button class="pagination-btn">«</button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">»</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function resetFilters() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            document.getElementById('searchInput').value = '';
+        }
+    </script>
+</body>
+</html>

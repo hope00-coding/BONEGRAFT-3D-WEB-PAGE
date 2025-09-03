@@ -1,0 +1,1862 @@
+<!-- 2.kod -->
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirPods Max</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #111;
+}
+
+
+
+/* Header */
+.medical-header {
+    background: #ffffff;
+    padding: 0 20px;
+    position:fixed;
+    width: 100%;
+    top: 0;
+    height: 90px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.medical-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.medical-logo-wrapper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.medical-logo-wrapper img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Main Navigation */
+.medical-main-nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.medical-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.medical-nav-links > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.medical-nav-links a {
+    text-decoration: none;
+    color: #078147;
+    font-weight: 400;
+    font-size: 19px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: all 0.3s ease;
+    padding: 12px 0;
+    position: relative;
+    white-space: nowrap;
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+}
+
+.medical-nav-links a:hover {
+    color: #00b064;
+}
+
+.medical-nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 8px;
+    left: 0;
+    background-color: #14533a;
+    transition: width 0.3s ease;
+}
+
+.medical-nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Products Dropdown */
+.medical-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.medical-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.medical-dropdown > a::before {
+    content: "▼";
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    margin-left: 4px;
+    color: #86868b;
+}
+
+.medical-dropdown:hover > a::before {
+    transform: rotate(180deg);
+    color: #00813c;
+}
+
+.medical-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(20px);
+}
+
+.medical-dropdown:hover .medical-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(8px);
+}
+
+.medical-dropdown-menu a {
+    display: block;
+    padding: 14px 24px;
+    color: #1d1d1f;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.medical-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.medical-dropdown-menu a:hover {
+    background: #f5f5f7;
+    color: #078147;
+}
+
+.medical-dropdown-menu a::after {
+    display: none;
+}
+
+/* Right Section */
+.medical-right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.medical-catalogue-btn {
+    background: #078147;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: -0.022em;
+    white-space: nowrap;
+}
+
+.medical-catalogue-btn:hover {
+    background: #01b960;
+    transform: translateY(-1px);
+}
+
+/* Language Selector */
+.medical-language-selector {
+    position: relative;
+}
+
+.medical-language-btn {
+    background: #f5f5f7;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+}
+
+.medical-language-btn:hover {
+    background: #e8e8ed;
+    color: #078147;
+}
+
+.medical-language-btn::after {
+    content: "▼";
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    color: #86868b;
+}
+
+.medical-language-selector.active .medical-language-btn::after {
+    transform: rotate(180deg);
+    color: #008545;
+}
+
+.medical-language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.medical-language-selector.active .medical-language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(8px);
+}
+
+.medical-language-option {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+}
+
+.medical-language-option:hover {
+    background: #f5f5f7;
+    color: #078147;
+}
+
+.medical-language-option.active {
+    background: #078147;
+    color: white;
+}
+
+/* Mobile Menu */
+.medical-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+}
+
+.medical-hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #1d1d1f;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+}
+
+.medical-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.medical-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.medical-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Styles */
+@media (max-width: 1200px) {
+    .medical-header-container {
+        padding: 0 15px;
+    }
+
+    .medical-nav-links {
+        gap: 32px;
+    }
+
+    .medical-nav-links a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .medical-main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+        backdrop-filter: blur(20px);
+        justify-content: flex-start;
+    }
+
+    .medical-main-nav.active {
+        display: block;
+    }
+
+    .medical-nav-links {
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .medical-nav-links li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        display: block;
+    }
+
+    .medical-nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .medical-nav-links a {
+        display: block;
+        padding: 16px 0;
+        font-size: 17px;
+        white-space: normal;
+    }
+
+    .medical-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: #f5f5f7;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .medical-dropdown:hover .medical-dropdown-menu {
+        display: block;
+    }
+
+    .medical-dropdown-menu a {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .medical-hamburger {
+        display: flex;
+    }
+
+    .medical-right-section {
+        gap: 15px;
+    }
+
+    .medical-catalogue-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .medical-header {
+        padding: 0 15px;
+    }
+
+    .medical-catalogue-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .medical-language-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .medical-header {
+        height: 80px;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    .medical-logo-wrapper img {
+        height: 40px;
+    }
+
+    .medical-right-section {
+        gap: 10px;
+    }
+
+    .medical-catalogue-btn {
+        display: none;
+    }
+
+    .medical-language-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+/* Bölüm kapsayıcı */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh;
+}
+
+/* Arka plan yazısı */
+.background-text {
+    position: absolute;
+    font-weight: bold;
+    color: rgba(0, 128, 0, 0.05);
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    z-index: 0;
+    font-size: 20rem;
+    line-height: 1.1;
+    pointer-events: none;
+    text-transform: capitalize;
+}
+.background-text span {
+    display: block;
+}
+.background-text .pods {
+    padding-left: 50px;
+}
+.background-text .max {
+    padding-left: 10px;
+}
+
+/* Yazı alanı */
+.text-block {
+    flex: 1;
+    min-width: 300px;
+    z-index: 2;
+    position: relative;
+}
+.text-block h4 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 15px;
+}
+.text-block h1 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+}
+.text-block p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 500px;
+}
+.icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+.icons div {
+    text-align: center;
+}
+.icons span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+/* Görsel alanı */
+.image-block {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+}
+.image-block img {
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .background-text {
+        font-size: 8rem;
+        top: 10%;
+        right: 50%;
+        transform: translate(50%, 0);
+        text-align: center;
+    }
+    .text-block h1 {
+        font-size: 2.5rem;
+    }
+    .text-block p {
+        font-size: 1.1rem;
+    }
+    .image-block img {
+        max-width: 90%;
+    }
+}
+
+/* Tab menü kısmı */
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 30%;
+}
+.option {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.option:hover {
+    background: #f0f0f0;
+}
+.option.active {
+    background: #e6f0ff;
+    border-left: 5px solid #4a90e2;
+}
+.content {
+    background: white;
+    flex: 1;
+    border-radius: 12px;
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.123);
+    width: 100%;
+    height: 300px;
+}
+@media (max-width: 768px) {
+    .section-container {
+        flex-direction: column;
+    }
+    .options {
+        width: 100%;
+        flex-direction: row;
+    }
+    .option {
+        flex: 1;
+    }
+}
+.card-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; 
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.card {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 80%;
+    min-height: 500px; 
+    align-items: center;
+    gap: 40px; /* resim ile metin arasına boşluk */
+    padding: 30px;
+}
+
+/* Resim alanı */
+.card img {
+    width: 450px; /* Daha büyük */
+    height: auto;
+    transition: transform 0.4s ease;
+    flex-shrink: 0; /* Küçülmesini engeller */
+}
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* Metin alanı */
+.content-card {
+    flex: 1; /* kalan tüm alanı kaplar */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content-card h2 {
+    font-size: 36px; /* Daha büyük başlık */
+    margin-bottom: 20px;
+}
+.content-card p {
+    font-size: 18px; /* Daha büyük metin */
+    margin: 10px 0;
+    line-height: 1.6;
+}
+.content-card p strong {
+    font-weight: bold;
+}
+
+/* Buton */
+.btn {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 14px 28px; /* Daha büyük buton */
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 30px;
+    font-size: 18px; /* Daha büyük yazı */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wrap-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .top-bar h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .btn-show-all {
+        background: black;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+    }
+
+    .item-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .item-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-photo {
+        width: 100%;
+        height: 250px;
+    }
+
+    .item-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .item-details {
+        padding: 15px;
+    }
+
+    .item-name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .link-more {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+
+
+
+
+
+
+      
+
+/*FOOTER KISMI--------------------------------------------------------------------------------------------------------------- */
+
+
+
+/* Footer KISMI - Responsive Typography */
+.footer {
+    background: linear-gradient(to right, #2e8d61, #16bd56);
+    color: #fff;
+    padding: 80px 0 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-column h3 {
+    font-size: 24px; /* 18px'den 24px'e yükselttim */
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: #078147;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px; /* Yeni eklendi - link yazıları büyük */
+    font-weight: 400;
+}
+
+.footer-links a:hover {
+    color: #32e686;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    font-size: 16px; /* 14px'den 16px'e yükselttim */
+}
+
+/* Tablet Responsive - 768px ve altı */
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 0 30px;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .footer-column h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-links a {
+        font-size: 17px;
+    }
+    
+    .footer-bottom {
+        font-size: 15px;
+        margin-top: 40px;
+    }
+}
+
+/* Mobile Responsive - 480px ve altı */
+@media (max-width: 480px) {
+    .footer {
+        padding: 50px 0 25px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+        font-size: 16px;
+        display: block;
+        padding: 8px 0;
+    }
+    
+    .footer-bottom {
+        font-size: 14px;
+        margin-top: 30px;
+        padding: 15px;
+    }
+}
+
+/* Large Desktop - 1400px ve üstü */
+@media (min-width: 1400px) {
+    .footer-column h3 {
+        font-size: 26px;
+    }
+    
+    .footer-links a {
+        font-size: 19px;
+    }
+    
+    .footer-bottom {
+        font-size: 17px;
+    }
+}
+
+/* Extra Small Mobile - 320px ve altı */
+@media (max-width: 320px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-container {
+        padding: 0 10px;
+        gap: 20px;
+    }
+    
+    .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 15px;
+        padding: 6px 0;
+    }
+    
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-bottom {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+     <header class="medical-header">
+        <div class="medical-header-container">
+            <!-- Logo -->
+            <div class="medical-logo-wrapper">
+                <img src="/powerbone-logo-dentalimplant-1536x333.png" alt="Logo">
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="medical-main-nav">
+                <ul class="medical-nav-links">
+                    <li><a href="/html.html">Who We Are</a></li>
+                    <li><a href="#our-services">Our Services</a></li>
+                    <li><a href="#fair-events">Fair Events</a></li>
+                    <li class="medical-dropdown">
+                        <a href="/product.html">Products</a>
+                        <div class="medical-dropdown-menu">
+                            <a href="#dental">DENTAL</a>
+                            <a href="#orthopedic">ORTHOPEDIC</a>
+                            <a href="#spinal">SPINAL</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Section -->
+            <div class="medical-right-section">
+                <a href="#catalogue" class="medical-catalogue-btn">Digital Catalogue</a>
+                
+                <div class="medical-language-selector">
+                    <button class="medical-language-btn" onclick="toggleMedicalLanguage()">EN</button>
+                    <div class="medical-language-dropdown">
+                        <div class="medical-language-option active" onclick="selectMedicalLanguage('EN')">English</div>
+                        <div class="medical-language-option" onclick="selectMedicalLanguage('TR')">Türkçe</div>
+                        <div class="medical-language-option" onclick="selectMedicalLanguage('DE')">Deutsch</div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="medical-hamburger" onclick="toggleMedicalMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Üst Bölüm -->
+<section class="section">
+    <div class="background-text">
+        <span class="air">Air</span>
+        <span class="pods">Pods</span>
+        <span class="max">Max</span>
+    </div>
+    <div class="text-block">
+        <h4>Summer Sale</h4>
+        <h1 id="title">Enhance Your Music Experience</h1>
+        <p id="description">The over-ear headphone has been completely reimagined. From cushion to canopy, AirPods Max are designed for an uncompromising fit that creates the optimal acoustic seal for many different head shapes — fully immersing you in every sound.</p>
+        <div class="icons">
+            <div><span>10</span>Hours</div>
+            <div><span>43</span>Minutes</div>
+            <div><span>29</span>Seconds</div>
+        </div>
+    </div>
+    <div class="image-block">
+        <img id="product-image" src="/1.hizmet.png" alt="AirPods Max">
+    </div>
+</section>
+
+<!-- Alt Bölüm -->
+<section class="section">
+    <div class="image-block">
+        <img id="product-image-2" src="/2.hizmet.png" alt="AirPods Max Case">
+    </div>
+    <div class="text-block">
+        <h1 id="secondary-title">Protect Your AirPods Max</h1>
+        <p id="secondary-description">You can protect the AirPods Max with either a different storage case or some ear cup covers. A storage case will protect your headphones when you're not using them and store essential accessories like charging or audio cables, to name a couple.</p>
+    </div>
+</section>
+
+<!-- Seçenekler -->
+<section>
+    <div class="section-container">
+        <div class="options">
+            <div class="option active" onclick="showContent(0)">Seçenek 1</div>
+            <div class="option" onclick="showContent(1)">Seçenek 2</div>
+            <div class="option" onclick="showContent(2)">Seçenek 3</div>
+        </div>
+        <div class="content" id="content-box">
+            <h2 id="third-title">Seçenek 1 Başlığı</h2>
+            <p id="third-description">Burası Seçenek 1'in açıklama alanı. Kullanıcı buraya tıkladığında detaylı bilgiler görecek.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Card Bölümü -->
+<section class="card-section">
+    <div class="card">
+        <img id="card-image" src="bb613c46-e0f7-41dc-9592-ec5eef5e5b72.png" alt="Powerbone Granules">
+        <div class="content-card">
+            <h2 id="card-title">Product Specifications</h2>
+            <p id="card-description"><strong>Material:</strong> PLA</p>
+            <p id="card-details">Sizes: 15×20 mm to 30×40 mm</p>
+            <p id="card-specs">Sterile, CE certified</p>
+            <a href="#" id="card-link" class="btn">Get Offer ▶</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap-container">
+    <div class="top-bar">
+        <h2>Similar Items</h2>
+        <a href="#" class="btn-show-all">
+            View All &#9654;
+        </a>
+    </div>
+
+    <div class="item-grid">
+        <div class="item-card">
+            <div class="item-photo">
+                <img id="item-1-image" src="image1.jpg" alt="Powerbone Synthetic Bone Graft">
+            </div>
+            <div class="item-details">
+                <div id="item-1-name" class="item-name">Powerbone Synthetic Bone Graft</div>
+                <a href="#" id="item-1-link" class="link-more">Details &#9654;</a>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-photo">
+                <img id="item-2-image" src="/1.hizmet.png" alt="Powerbone Granule">
+            </div>
+            <div class="item-details">
+                <div id="item-2-name" class="item-name">Powerbone Granule</div>
+                <a href="#" id="item-2-link" class="link-more">Details &#9654;</a>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-photo">
+                <img id="item-3-image" src="/2.hizmet.png" alt="Powerbone Dental Putty">
+            </div>
+            <div class="item-details">
+                <div id="item-3-name" class="item-name">Powerbone Dental Putty</div>
+                <a href="#" id="item-3-link" class="link-more">Details &#9654;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+     <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Hakkımızda</h3>
+                <p>25 yılı aşkın tecrübemizle medikal sektöründe öncü firmalardan biriyiz. Kalite ve müşteri memnuniyeti her zaman önceliğimizdir.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Hızlı Linkler</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünlerimiz</a></li>
+                    <li><a href="#">Sunumlar</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ürünler</h3>
+                <ul class="footer-links">
+                    <li><a href="#">İmplantlar</a></li>
+                    <li><a href="#">Konteynır Sistemleri</a></li>
+                    <li><a href="#">Cerrahi Aletler</a></li>
+                    <li><a href="#">Stabilizasyon Sistemleri</a></li>
+                    <li><a href="#">Minimal İnvazive Sistemler</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>İletişim</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Organize Sanayi Bölgesi, İstanbul</li>
+                    <li><i class="fas fa-phone"></i> +90 212 555 55 55</li>
+                    <li><i class="fas fa-envelope"></i> info@metrosan.com.tr</li>
+                    <li><i class="fas fa-clock"></i> Pzt-Cmt: 08:00 - 18:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 POWERBONE. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+<script>
+const contents = [
+    { title: "Seçenek 1 Başlığı", text: "Burası Seçenek 1'in açıklama alanı. Kullanıcı buraya tıkladığında detaylı bilgiler görecek." },
+    { title: "Seçenek 2 Başlığı", text: "Burası Seçenek 2'nin açıklama alanı. Kullanıcı buraya tıkladığında farklı bilgiler görecek." },
+    { title: "Seçenek 3 Başlığı", text: "Burası Seçenek 3'ün açıklama alanı. Kullanıcı buraya tıkladığında buraya ait detaylar gözükecek." }
+];
+function showContent(index) {
+    document.querySelectorAll(".option").forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".option")[index].classList.add("active");
+    document.getElementById("content-box").innerHTML = `
+        <h2>${contents[index].title}</h2>
+        <p>${contents[index].text}</p>
+    `;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// ANA SAYFA JAVASCRIPT - 2. SAYFAYA UYGUN VERSİYON
+// Bu kod ana sayfanın <script> tagları arasına gelecek
+
+// 2. sayfadaki productDatabase'i ana sayfada da kullan
+const productDatabase = {
+    1: {
+        title: 'iPhone 14 Pro',
+        description: 'iPhone 14 Pro, A16 Bionic çip ile güçlendirilmiş ve profesyonel fotoğrafçılık özellikleri sunan premium akıllı telefon.',
+        secondaryTitle: 'Pro Kamera Sistemi',
+        secondaryDescription: 'Gelişmiş üçlü kamera sistemi ile 4K video çekimi ve ProRAW fotoğraf desteği. Gece modu ile düşük ışıkta bile mükemmel fotoğraflar.',
+        thirdTitle: 'Neden iPhone 14 Pro?',
+        thirdDescription: 'Titanyum tasarım, Always-On ekran teknolojisi ve tüm gün süren batarya ömrü ile günlük ihtiyaçlarınızı karşılar.',
+        cardTitle: 'Product Specifications',
+        cardDescription: 'A16 Bionic Chip',
+        cardDetails: '6.1" Super Retina Display',
+        cardSpecs: '48MP Pro Camera System',
+        cardLink: 'Get iPhone Pro ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/007AFF/FFFFFF?text=iPhone+14+Pro',
+            secondary: 'https://via.placeholder.com/400x300/1DB954/FFFFFF?text=Pro+Camera',
+            card: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=iPhone+Specs'
+        },
+        items: {
+            item1: { name: 'iPhone 14 Pro Max', image: 'https://via.placeholder.com/200x150/007AFF/FFFFFF?text=Pro+Max', link: '#iphone-pro-max' },
+            item2: { name: 'iPhone 14', image: 'https://via.placeholder.com/200x150/1DB954/FFFFFF?text=iPhone+14', link: '#iphone-14' },
+            item3: { name: 'iPhone 13', image: 'https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=iPhone+13', link: '#iphone-13' }
+        },
+        type: 'elektronik',
+        manufacturer: 'apple'
+    },
+    2: {
+        title: 'Samsung Galaxy S23',
+        description: 'Galaxy S23, Snapdragon 8 Gen 2 işlemci ile üstün performans ve gelişmiş kamera özellikleri sunar.',
+        secondaryTitle: 'Galaxy AI Özellikleri',
+        secondaryDescription: 'Yapay zeka destekli fotoğraf düzenleme, gerçek zamanlı çeviri ve akıllı pil optimizasyonu.',
+        thirdTitle: 'Galaxy Ekosistemi',
+        thirdDescription: 'Samsung Galaxy Watch, Buds ve diğer Galaxy cihazlarla sorunsuz entegrasyon.',
+        cardTitle: 'Galaxy Features',
+        cardDescription: 'Snapdragon 8 Gen 2',
+        cardDetails: '6.1" Dynamic AMOLED',
+        cardSpecs: '50MP Triple Camera',
+        cardLink: 'Get Galaxy ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/6C5CE7/FFFFFF?text=Galaxy+S23',
+            secondary: 'https://via.placeholder.com/400x300/00CEC9/FFFFFF?text=AI+Features',
+            card: 'https://via.placeholder.com/400x300/E17055/FFFFFF?text=Galaxy+Specs'
+        },
+        items: {
+            item1: { name: 'Galaxy S23 Ultra', image: 'https://via.placeholder.com/200x150/6C5CE7/FFFFFF?text=S23+Ultra', link: '#galaxy-ultra' },
+            item2: { name: 'Galaxy S23+', image: 'https://via.placeholder.com/200x150/00CEC9/FFFFFF?text=S23+Plus', link: '#galaxy-plus' },
+            item3: { name: 'Galaxy S22', image: 'https://via.placeholder.com/200x150/E17055/FFFFFF?text=Galaxy+S22', link: '#galaxy-s22' }
+        },
+        type: 'elektronik',
+        manufacturer: 'samsung'
+    },
+    3: {
+        title: 'Nike Air Max',
+        description: 'Nike Air Max, maksimum hava yastığı teknolojisi ile üstün konfor ve stil sunan spor ayakkabı.',
+        secondaryTitle: 'Air Max Teknolojisi',
+        secondaryDescription: 'Görünür Air yastık sistemi ile her adımda maksimum darbe emilimi ve konfor sağlar.',
+        thirdTitle: 'Stil ve Performans',
+        thirdDescription: 'Spor ve günlük kulanım için mükemmel, zamansız tasarım ve üstün performans.',
+        cardTitle: 'Nike Technology',
+        cardDescription: 'Air Max Cushioning',
+        cardDetails: 'Premium Materials',
+        cardSpecs: 'All-Day Comfort',
+        cardLink: 'Get Nike ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Nike+Air+Max',
+            secondary: 'https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=Air+Tech',
+            card: 'https://via.placeholder.com/400x300/45B7D1/FFFFFF?text=Nike+Specs'
+        },
+        items: {
+            item1: { name: 'Nike Air Force 1', image: 'https://via.placeholder.com/200x150/FF6B6B/FFFFFF?text=Air+Force', link: '#air-force' },
+            item2: { name: 'Nike Air Jordan', image: 'https://via.placeholder.com/200x150/4ECDC4/FFFFFF?text=Air+Jordan', link: '#air-jordan' },
+            item3: { name: 'Nike Revolution', image: 'https://via.placeholder.com/200x150/45B7D1/FFFFFF?text=Revolution', link: '#revolution' }
+        },
+        type: 'spor',
+        manufacturer: 'nike'
+    },
+    4: {
+        title: 'Beyaz Tişört',
+        description: 'Pamuklu beyaz tişört, günlük kulanım için ideal, rahat ve şık tasarım.',
+        secondaryTitle: 'Premium Pamuk',
+        secondaryDescription: '100% organik pamuk ile üretilen, çevre dostu ve nefes alabilir kumaş.',
+        thirdTitle: 'Minimalist Stil',
+        thirdDescription: 'Her kombine uygun, klasik kesim ve kaliteli işçilik.',
+        cardTitle: 'T-Shirt Details',
+        cardDescription: '100% Organic Cotton',
+        cardDetails: 'Classic Fit Design',
+        cardSpecs: 'Machine Washable',
+        cardLink: 'Get T-Shirt ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/FFFFFF/000000?text=White+T-Shirt',
+            secondary: 'https://via.placeholder.com/400x300/F8F8F8/333333?text=Cotton+Quality',
+            card: 'https://via.placeholder.com/400x300/E8E8E8/666666?text=T-Shirt+Specs'
+        },
+        items: {
+            item1: { name: 'Siyah Tişört', image: 'https://via.placeholder.com/200x150/000000/FFFFFF?text=Black+Tee', link: '#black-tshirt' },
+            item2: { name: 'Gri Tişört', image: 'https://via.placeholder.com/200x150/808080/FFFFFF?text=Grey+Tee', link: '#grey-tshirt' },
+            item3: { name: 'Lacivert Tişört', image: 'https://via.placeholder.com/200x150/000080/FFFFFF?text=Navy+Tee', link: '#navy-tshirt' }
+        },
+        type: 'giyim',
+        manufacturer: 'zara'
+    },
+    5: {
+        title: 'Kahve Makinesi',
+        description: 'Otomatik kahve makinesi ile evde profesyonel kahve deneyimi. 15 farklı kahve seçeneği.',
+        secondaryTitle: 'LatteGo Sistemi',
+        secondaryDescription: 'Tek dokunuşla mükemmel cappuccino ve latte hazırlama. Otomatik temizlik özelliği.',
+        thirdTitle: 'Akıllı Kahve Deneyimi',
+        thirdDescription: 'Ayarlanabilir kahve gücü, sıcaklık kontrolü ve mobil uygulama desteği.',
+        cardTitle: 'Coffee Maker Features',
+        cardDescription: '15 Coffee Recipes',
+        cardDetails: 'LatteGo System',
+        cardSpecs: 'Auto Clean Function',
+        cardLink: 'Get Coffee Maker ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/8D6E63/FFFFFF?text=Coffee+Machine',
+            secondary: 'https://via.placeholder.com/400x300/5D4037/FFFFFF?text=LatteGo+System',
+            card: 'https://via.placeholder.com/400x300/3E2723/FFFFFF?text=Coffee+Specs'
+        },
+        items: {
+            item1: { name: 'Espresso Makinesi', image: 'https://via.placeholder.com/200x150/8D6E63/FFFFFF?text=Espresso', link: '#espresso' },
+            item2: { name: 'French Press', image: 'https://via.placeholder.com/200x150/5D4037/FFFFFF?text=French+Press', link: '#french-press' },
+            item3: { name: 'Filtre Kahve', image: 'https://via.placeholder.com/200x150/3E2723/FFFFFF?text=Filter+Coffee', link: '#filter-coffee' }
+        },
+        type: 'ev',
+        manufacturer: 'philips'
+    },
+    6: {
+        title: 'Adidas Spor Ayakkabı',
+        description: 'Adidas spor ayakkabı, Boost teknolojisi ile maksimum enerji geri dönüşü ve konfor sunar.',
+        secondaryTitle: 'Boost Teknolojisi',
+        secondaryDescription: 'Her adımda enerji geri dönüşü sağlayan Boost köpük teknolojisi ile üstün performans.',
+        thirdTitle: 'Spor Performansı',
+        thirdDescription: 'Antrenman ve günlük kullanım için ideal, dayanıklı ve rahat tasarım.',
+        cardTitle: 'Adidas Technology',
+        cardDescription: 'Boost Energy Return',
+        cardDetails: 'Premium Construction',
+        cardSpecs: 'Athletic Performance',
+        cardLink: 'Get Adidas ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/000000/FFFFFF?text=Adidas+Boost',
+            secondary: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=Boost+Tech',
+            card: 'https://via.placeholder.com/400x300/007AFF/FFFFFF?text=Adidas+Specs'
+        },
+        items: {
+            item1: { name: 'Adidas Ultraboost', image: 'https://via.placeholder.com/200x150/000000/FFFFFF?text=Ultraboost', link: '#ultraboost' },
+            item2: { name: 'Adidas NMD', image: 'https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=NMD', link: '#nmd' },
+            item3: { name: 'Adidas Stan Smith', image: 'https://via.placeholder.com/200x150/007AFF/FFFFFF?text=Stan+Smith', link: '#stan-smith' }
+        },
+        type: 'spor',
+        manufacturer: 'adidas'
+    },
+    7: {
+        title: 'MacBook Air',
+        description: 'MacBook Air M2 çip ile güçlendirilmiş, ultra ince ve hafif tasarım ile yüksek performans sunar.',
+        secondaryTitle: 'M2 Çip Gücü',
+        secondaryDescription: 'Apple M2 çip ile 8 çekirdekli CPU ve 10 çekirdekli GPU performansı. 18 saate kadar pil ömrü.',
+        thirdTitle: 'Ultra Taşınabilir',
+        thirdDescription: '1.24 kg ağırlık, 11.3 mm incelik ile her yere taşınabilir profesyonel performans.',
+        cardTitle: 'MacBook Specs',
+        cardDescription: 'Apple M2 Chip',
+        cardDetails: '13.6" Liquid Retina',
+        cardSpecs: '18h Battery Life',
+        cardLink: 'Get MacBook ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/C0C0C0/000000?text=MacBook+Air',
+            secondary: 'https://via.placeholder.com/400x300/007AFF/FFFFFF?text=M2+Performance',
+            card: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=MacBook+Specs'
+        },
+        items: {
+            item1: { name: 'MacBook Pro', image: 'https://via.placeholder.com/200x150/C0C0C0/000000?text=MacBook+Pro', link: '#macbook-pro' },
+            item2: { name: 'iMac', image: 'https://via.placeholder.com/200x150/007AFF/FFFFFF?text=iMac', link: '#imac' },
+            item3: { name: 'Mac Mini', image: 'https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Mac+Mini', link: '#mac-mini' }
+        },
+        type: 'elektronik',
+        manufacturer: 'apple'
+    },
+    8: {
+        title: 'Jean Pantolon',
+        description: 'Klasik kesim jean pantolon, %100 pamuk denim kumaş ile rahat ve şık günlük giyim.',
+        secondaryTitle: 'Premium Denim',
+        secondaryDescription: '%100 pamuk denim kumaş, çevre dostu boyama işlemi ve klasik mavi renk seçeneği.',
+        thirdTitle: 'Zamansız Stil',
+        thirdDescription: 'Her yaşa ve vücut tipine uygun, rahat kesim ile günlük ve özel günlerde kullanılabilir.',
+        cardTitle: 'Denim Details',
+        cardDescription: '100% Cotton Denim',
+        cardDetails: 'Classic Blue Wash',
+        cardSpecs: 'Regular Fit',
+        cardLink: 'Get Jeans ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/1E3A8A/FFFFFF?text=Denim+Jeans',
+            secondary: 'https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Premium+Denim',
+            card: 'https://via.placeholder.com/400x300/1D4ED8/FFFFFF?text=Jeans+Specs'
+        },
+        items: {
+            item1: { name: 'Skinny Jean', image: 'https://via.placeholder.com/200x150/1E3A8A/FFFFFF?text=Skinny+Jean', link: '#skinny-jeans' },
+            item2: { name: 'Straight Jean', image: 'https://via.placeholder.com/200x150/3B82F6/FFFFFF?text=Straight+Jean', link: '#straight-jeans' },
+            item3: { name: 'Wide Jean', image: 'https://via.placeholder.com/200x150/1D4ED8/FFFFFF?text=Wide+Jean', link: '#wide-jeans' }
+        },
+        type: 'giyim',
+        manufacturer: 'zara'
+    },
+    9: {
+        title: 'Akıllı TV',
+        description: 'Samsung 55" 4K QLED Smart TV, Quantum Dot teknolojisi ile canlı renkler ve akıllı özellikler.',
+        secondaryTitle: 'QLED Teknolojisi',
+        secondaryDescription: 'Quantum Dot teknolojisi ile %100 renk hacmi, HDR10+ desteği ve 4K çözünürlük.',
+        thirdTitle: 'Akıllı Özellikler',
+        thirdDescription: 'Tizen işletim sistemi, Netflix, YouTube, Disney+ uygulamaları ve sesli kontrol desteği.',
+        cardTitle: 'Smart TV Features',
+        cardDescription: '55" QLED 4K Display',
+        cardDetails: 'Quantum Dot Technology',
+        cardSpecs: 'Smart Apps Included',
+        cardLink: 'Get Smart TV ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/000000/FFFFFF?text=Samsung+QLED',
+            secondary: 'https://via.placeholder.com/400x300/6366F1/FFFFFF?text=4K+Display',
+            card: 'https://via.placeholder.com/400x300/10B981/FFFFFF?text=Smart+Features'
+        },
+        items: {
+            item1: { name: '65" QLED TV', image: 'https://via.placeholder.com/200x150/000000/FFFFFF?text=65+QLED', link: '#qled-65' },
+            item2: { name: '43" Smart TV', image: 'https://via.placeholder.com/200x150/6366F1/FFFFFF?text=43+Smart', link: '#smart-43' },
+            item3: { name: '75" Neo QLED', image: 'https://via.placeholder.com/200x150/10B981/FFFFFF?text=75+Neo', link: '#neo-qled' }
+        },
+        type: 'elektronik',
+        manufacturer: 'samsung'
+    },
+    10: {
+        title: 'Yoga Matı',
+        description: 'Nike yoga matı, kaymaz yüzey ve 6mm kalınlık ile yoga ve fitness antrenmanları için ideal.',
+        secondaryTitle: 'Kaymaz Teknoloji',
+        secondaryDescription: 'Her iki yüzü kaymaz özellikli, ter emici yüzey ile güvenli ve konforlu antrenman.',
+        thirdTitle: 'Çok Amaçlı Kullanım',
+        thirdDescription: 'Yoga, pilates, stretching ve fitness antrenmanları için çok amaçlı kullanım.',
+        cardTitle: 'Yoga Mat Features',
+        cardDescription: '6mm Thickness',
+        cardDetails: 'Non-Slip Surface',
+        cardSpecs: 'Multi-Purpose Use',
+        cardLink: 'Get Yoga Mat ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Yoga+Mat',
+            secondary: 'https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Non+Slip',
+            card: 'https://via.placeholder.com/400x300/10B981/FFFFFF?text=Fitness+Ready'
+        },
+        items: {
+            item1: { name: 'Pilates Mat', image: 'https://via.placeholder.com/200x150/8B5CF6/FFFFFF?text=Pilates+Mat', link: '#pilates-mat' },
+            item2: { name: 'Exercise Ball', image: 'https://via.placeholder.com/200x150/06B6D4/FFFFFF?text=Exercise+Ball', link: '#exercise-ball' },
+            item3: { name: 'Resistance Band', image: 'https://via.placeholder.com/200x150/10B981/FFFFFF?text=Resistance+Band', link: '#resistance-band' }
+        },
+        type: 'spor',
+        manufacturer: 'nike'
+    },
+    11: {
+        title: 'Kış Montu',
+        description: 'Nike kış montu, su geçirmez DryFit teknolojisi ve termal astar ile soğuk hava koruması.',
+        secondaryTitle: 'DryFit Teknolojisi',
+        secondaryDescription: 'Su geçirmez dış kumaş, nefes alabilir iç astar ve termal yalıtım özelliği.',
+        thirdTitle: 'Kış Performansı',
+        thirdDescription: 'Ekstrem soğuk hava koşullarına karşı koruma, spor ve günlük kullanım için ideal.',
+        cardTitle: 'Winter Jacket Features',
+        cardDescription: 'DryFit Technology',
+        cardDetails: 'Waterproof Design',
+        cardSpecs: 'Thermal Insulation',
+        cardLink: 'Get Winter Jacket ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/1F2937/FFFFFF?text=Winter+Jacket',
+            secondary: 'https://via.placeholder.com/400x300/374151/FFFFFF?text=DryFit+Tech',
+            card: 'https://via.placeholder.com/400x300/4B5563/FFFFFF?text=Winter+Specs'
+        },
+        items: {
+            item1: { name: 'Puffer Jacket', image: 'https://via.placeholder.com/200x150/1F2937/FFFFFF?text=Puffer+Jacket', link: '#puffer-jacket' },
+            item2: { name: 'Windbreaker', image: 'https://via.placeholder.com/200x150/374151/FFFFFF?text=Windbreaker', link: '#windbreaker' },
+            item3: { name: 'Fleece Jacket', image: 'https://via.placeholder.com/200x150/4B5563/FFFFFF?text=Fleece+Jacket', link: '#fleece-jacket' }
+        },
+        type: 'giyim',
+        manufacturer: 'nike'
+    },
+    12: {
+        title: 'Bluetooth Kulaklık',
+        description: 'Apple AirPods Pro 2, aktif gürültü engelleme ve H2 çip ile premium ses deneyimi sunar.',
+        secondaryTitle: 'Aktif Gürültü Engelleme',
+        secondaryDescription: 'H2 çip ile 2 kat daha etkili gürültü engelleme ve Adaptive Transparency modu.',
+        thirdTitle: 'Pro Ses Kalitesi',
+        thirdDescription: 'Spatial Audio desteği, kişiselleştirilmiş ses profili ve 6 saate kadar müzik dinleme.',
+        cardTitle: 'AirPods Pro Features',
+        cardDescription: 'H2 Chip Technology',
+        cardDetails: 'Active Noise Cancellation',
+        cardSpecs: '6h Battery + Case',
+        cardLink: 'Get AirPods ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/FFFFFF/000000?text=AirPods+Pro',
+            secondary: 'https://via.placeholder.com/400x300/007AFF/FFFFFF?text=ANC+Technology',
+            card: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=Pro+Audio'
+        },
+        items: {
+            item1: { name: 'AirPods 3', image: 'https://via.placeholder.com/200x150/FFFFFF/000000?text=AirPods+3', link: '#airpods-3' },
+            item2: { name: 'AirPods Max', image: 'https://via.placeholder.com/200x150/007AFF/FFFFFF?text=AirPods+Max', link: '#airpods-max' },
+            item3: { name: 'Beats Studio', image: 'https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Beats+Studio', link: '#beats-studio' }
+        },
+        type: 'elektronik',
+        manufacturer: 'apple'
+    },
+    13: {
+        title: 'Ev Parfümü',
+        description: 'Zara ev parfümü, doğal içerikler ile uzun süre kalıcı ferah ve modern kokular.',
+        secondaryTitle: 'Doğal İçerikler',
+        secondaryDescription: 'Organik yağlar ve doğal esanslar ile üretilen, allerjen içermeyen formül.',
+        thirdTitle: 'Uzun Süre Kalıcı',
+        thirdDescription: 'Yatak odası, oturma odası ve banyo için ideal, 8-10 saate kadar kalıcı etki.',
+        cardTitle: 'Home Fragrance Details',
+        cardDescription: '100% Natural Ingredients',
+        cardDetails: 'Allergen-Free Formula',
+        cardSpecs: '8-10h Long Lasting',
+        cardLink: 'Get Home Fragrance ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/F3E8FF/8B5CF6?text=Home+Fragrance',
+            secondary: 'https://via.placeholder.com/400x300/DBEAFE/6366F1?text=Natural+Oils',
+            card: 'https://via.placeholder.com/400x300/E0E7FF/4F46E5?text=Fragrance+Specs'
+        },
+        items: {
+            item1: { name: 'Lavender Scent', image: 'https://via.placeholder.com/200x150/F3E8FF/8B5CF6?text=Lavender', link: '#lavender' },
+            item2: { name: 'Vanilla Scent', image: 'https://via.placeholder.com/200x150/DBEAFE/6366F1?text=Vanilla', link: '#vanilla' },
+            item3: { name: 'Citrus Scent', image: 'https://via.placeholder.com/200x150/E0E7FF/4F46E5?text=Citrus', link: '#citrus' }
+        },
+        type: 'ev',
+        manufacturer: 'zara'
+    },
+    14: {
+        title: 'Spor Çantası',
+        description: 'Adidas spor çantası, su geçirmez kumaş ve çoklu bölme ile antrenman ve seyahat için ideal.',
+        secondaryTitle: 'Çoklu Bölme Sistemi',
+        secondaryDescription: 'Ayakkabı bölmesi, su şişesi yeri ve küçük eşyalar için ayrı bölmeler.',
+        thirdTitle: 'Dayanıklı Tasarım',
+        thirdDescription: 'Su geçirmez kumaş, güçlendirilmiş dikiş ve ayarlanabilir askı sistemi.',
+        cardTitle: 'Sport Bag Features',
+        cardDescription: '40L Capacity',
+        cardDetails: 'Multi-Compartment Design',
+        cardSpecs: 'Waterproof Material',
+        cardLink: 'Get Sport Bag ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/000000/FFFFFF?text=Adidas+Sport+Bag',
+            secondary: 'https://via.placeholder.com/400x300/1F2937/FFFFFF?text=Multi+Compartment',
+            card: 'https://via.placeholder.com/400x300/374151/FFFFFF?text=Sport+Bag+Specs'
+        },
+        items: {
+            item1: { name: 'Gym Backpack', image: 'https://via.placeholder.com/200x150/000000/FFFFFF?text=Gym+Backpack', link: '#gym-backpack' },
+            item2: { name: 'Travel Bag', image: 'https://via.placeholder.com/200x150/1F2937/FFFFFF?text=Travel+Bag', link: '#travel-bag' },
+            item3: { name: 'Duffel Bag', image: 'https://via.placeholder.com/200x150/374151/FFFFFF?text=Duffel+Bag', link: '#duffel-bag' }
+        },
+        type: 'spor',
+        manufacturer: 'adidas'
+    },
+    15: {
+        title: 'Tablet',
+        description: 'Samsung Galaxy Tab S9, 11" AMOLED ekran ve S Pen desteği ile yaratıcılık ve verimlilik için ideal.',
+        secondaryTitle: 'S Pen Desteği',
+        secondaryDescription: 'Gelişmiş S Pen ile not alma, çizim ve hassas dokunmatik kontrol imkanı.',
+        thirdTitle: 'AMOLED Ekran',
+        thirdDescription: '11" Super AMOLED ekran, HDR10+ desteği ve 120Hz yenileme hızı ile mükemmel görüntü kalitesi.',
+        cardTitle: 'Galaxy Tab Features',
+        cardDescription: '11" Super AMOLED',
+        cardDetails: 'S Pen Included',
+        cardSpecs: '120Hz Refresh Rate',
+        cardLink: 'Get Galaxy Tab ▶',
+        images: {
+            main: 'https://via.placeholder.com/400x300/1F2937/FFFFFF?text=Galaxy+Tab+S9',
+            secondary: 'https://via.placeholder.com/400x300/374151/FFFFFF?text=S+Pen+Support',
+            card: 'https://via.placeholder.com/400x300/4B5563/FFFFFF?text=Tab+Specs'
+        },
+        items: {
+            item1: { name: 'iPad Pro', image: 'https://via.placeholder.com/200x150/1F2937/FFFFFF?text=iPad+Pro', link: '#ipad-pro' },
+            item2: { name: 'Galaxy Tab A', image: 'https://via.placeholder.com/200x150/374151/FFFFFF?text=Tab+A', link: '#tab-a' },
+            item3: { name: 'Surface Pro', image: 'https://via.placeholder.com/200x150/4B5563/FFFFFF?text=Surface+Pro', link: '#surface-pro' }
+        },
+        type: 'elektronik',
+        manufacturer: 'samsung'
+    }
+};
+
+
+
+
+
+
+// ============================================
+// ANA SAYFA FONKSİYONLARI
+// ============================================
+
+// Sayfa yüklendiğinde çalışacak ana fonksiyon
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🏠 Ana sayfa yüklendi, ürün kartları hazırlanıyor...');
+    setupHomepageCards();
+});
+
+// Ana sayfadaki ürün kartlarını hazırlama fonksiyonu
+function setupHomepageCards() {
+    // Tüm potansiyel ürün kartlarını bul
+    const productCards = document.querySelectorAll(
+        '.card, .product-card, .catalog-item, .item, [data-product-id], .product, .grid-item, .catalog-card, .shop-item'
+    );
+    
+    console.log(`📦 ${productCards.length} adet ürün kartı bulundu`);
+    
+    if (productCards.length === 0) {
+        console.warn('⚠️ Hiç ürün kartı bulunamadı! Manuel tespit yapılıyor...');
+        setupManualDetection();
+        return;
+    }
+    
+    // Her bir karta ID ata ve click eventi ekle
+    productCards.forEach((card, index) => {
+        const productId = index + 1;
+        
+        // Ürün ID'sini ata
+        card.setAttribute('data-product-id', productId);
+        
+        // Click eventi ekle
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`🔗 Ürün kartına tıklandı: ID ${productId}`);
+            goToProduct(productId);
+        });
+        
+        // Görsel efektler ekle
+        addVisualEffects(card);
+        
+        console.log(`✅ Kart ${productId} hazırlandı`);
+    });
+}
+
+// Manuel kart tespiti (standart selectorler çalışmazsa)
+function setupManualDetection() {
+    console.log('🔧 Manuel kart tespiti yapılıyor...');
+    
+    const allDivs = document.querySelectorAll('div');
+    const potentialCards = [];
+    
+    allDivs.forEach((div, index) => {
+        const hasImage = div.querySelector('img') !== null;
+        const hasText = div.textContent.trim().length > 10 && div.textContent.trim().length < 200;
+        const hasClickableArea = div.offsetWidth > 100 && div.offsetHeight > 100;
+        const hasMultipleChildren = div.children.length >= 2;
+        
+        if (hasImage && hasText && hasClickableArea && hasMultipleChildren) {
+            potentialCards.push(div);
+            div.classList.add('detected-product-card');
+        }
+    });
+    
+    console.log(`🎯 ${potentialCards.length} potansiyel ürün kartı tespit edildi`);
+    
+    // Manuel tespit edilen kartları hazırla
+    potentialCards.forEach((card, index) => {
+        const productId = index + 1;
+        card.setAttribute('data-product-id', productId);
+        
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`🔗 Manuel tespit - Ürün kartına tıklandı: ID ${productId}`);
+            goToProduct(productId);
+        });
+        
+        addVisualEffects(card);
+    });
+}
+
+// Kartlara görsel efekt ekleme fonksiyonu
+function addVisualEffects(card) {
+    card.style.cursor = 'pointer';
+    card.style.transition = 'all 0.3s ease';
+    
+    // Hover efektleri
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+        this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    });
+}
+
+// Global yönlendirme fonksiyonu
+function goToProduct(productId) {
+    console.log(`🚀 Product sayfasına yönlendiriliyor: ID ${productId}`);
+    
+    if (!productId || productId < 1 || productId > 15) {
+        console.error('❌ Geçersiz ürün ID:', productId);
+        productId = 1;
+    }
+    
+    window.location.href = `product.html?id=${productId}`;
+}
+
+// Global olarak erişilebilir yap
+window.goToProduct = goToProduct;
+
+console.log('✅ Ana sayfa JavaScript kodu hazır!');
+
+// ============================================
+// ÜRÜN SAYFASI JAVASCRIPT KODU
+// Bu kodu product.html sayfanızın </body> etiketinden önce ekleyin
+// ============================================
+
+// URL'den ürün ID'sini al
+function getProductIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    
+    if (!id || id < 1 || id > 15) {
+        console.warn('⚠️ Geçersiz ürün ID, varsayılan olarak 1 kullanılıyor');
+        return 1;
+    }
+    
+    return id;
+}
+
+// Ürün bilgilerini sayfaya yerleştir
+function loadProductData() {
+    const productId = getProductIdFromUrl();
+    const product = productDatabase[productId];
+    
+    if (!product) {
+        console.error('❌ Ürün bulunamadı:', productId);
+        return;
+    }
+    
+    console.log(`📦 Ürün yükleniyor: ${product.title} (ID: ${productId})`);
+    
+    // Ana bölüm bilgileri
+    updateElement('title', product.title);
+    updateElement('description', product.description);
+    updateElement('product-image', product.images.main, 'src');
+    updateElement('product-image', product.title, 'alt');
+    
+    // İkinci bölüm bilgileri
+    updateElement('secondary-title', product.secondaryTitle);
+    updateElement('secondary-description', product.secondaryDescription);
+    updateElement('product-image-2', product.images.secondary, 'src');
+    updateElement('product-image-2', product.secondaryTitle, 'alt');
+    
+    // Üçüncü bölüm bilgileri
+    updateElement('third-title', product.thirdTitle);
+    updateElement('third-description', product.thirdDescription);
+    
+    // Kart bölümü bilgileri
+    updateElement('card-title', product.cardTitle);
+    updateElement('card-description', product.cardDescription);
+    updateElement('card-details', product.cardDetails);
+    updateElement('card-specs', product.cardSpecs);
+    updateElement('card-link', product.cardLink);
+    updateElement('card-image', product.images.card, 'src');
+    updateElement('card-image', product.title, 'alt');
+    
+    // Benzer ürünler bölümü
+    updateElement('item-1-name', product.items.item1.name);
+    updateElement('item-1-image', product.items.item1.image, 'src');
+    updateElement('item-1-image', product.items.item1.name, 'alt');
+    
+    updateElement('item-2-name', product.items.item2.name);
+    updateElement('item-2-image', product.items.item2.image, 'src');
+    updateElement('item-2-image', product.items.item2.name, 'alt');
+    
+    updateElement('item-3-name', product.items.item3.name);
+    updateElement('item-3-image', product.items.item3.image, 'src');
+    updateElement('item-3-image', product.items.item3.name, 'alt');
+    
+    console.log(`✅ Ürün başarıyla yüklendi: ${product.title}`);
+}
+
+// Element güncelleme fonksiyonu
+function updateElement(id, value, attribute = 'textContent') {
+    const element = document.getElementById(id);
+    if (element && value) {
+        if (attribute === 'textContent') {
+            element.textContent = value;
+        } else {
+            element.setAttribute(attribute, value);
+        }
+    } else if (!element) {
+        console.warn(`⚠️ Element bulunamadı: ${id}`);
+    }
+}
+
+// Geri gitme fonksiyonu
+function goBack() {
+    if (document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) {
+        window.history.back();
+    } else {
+        window.location.href = 'index.html'; // Ana sayfa dosyanızın adını buraya yazın
+    }
+}
+
+// Ürün sayfası için seçenek değiştirme fonksiyonu
+function showContent(optionIndex) {
+    const productId = getProductIdFromUrl();
+    const product = productDatabase[productId];
+    
+    if (!product) return;
+    
+    const options = [
+        { title: product.thirdTitle, description: product.thirdDescription },
+        { title: 'Seçenek 2 Başlığı', description: 'Seçenek 2 açıklaması...' },
+        { title: 'Seçenek 3 Başlığı', description: 'Seçenek 3 açıklaması...' }
+    ];
+    
+    const selectedOption = options[optionIndex] || options[0];
+    
+    updateElement('third-title', selectedOption.title);
+    updateElement('third-description', selectedOption.description);
+    
+    // Aktif seçenek stilini güncelle
+    document.querySelectorAll('.option').forEach((opt, index) => {
+        opt.classList.toggle('active', index === optionIndex);
+    });
+}
+
+// Ürün sayfası yüklendiğinde çalıştır
+if (window.location.pathname.includes('product.html') || window.location.search.includes('id=')) {
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 Ürün sayfası yüklendi');
+        loadProductData();
+    });
+}
+
+// Global fonksiyonları tanımla
+window.goBack = goBack;
+window.showContent = showContent;
+window.loadProductData = loadProductData;
+
+console.log('✅ Ürün sayfası JavaScript kodu hazır!');
